@@ -11,11 +11,17 @@ import java.util.List;
  */
 @AllArgsConstructor
 @Data
-public class Player {
+public class Player implements Comparable<Player>{
     private String name = null;
     private int number;
     private List<Card> cardList = new ArrayList<Card>();
     private Card lastCard = null;
 
+    public Player(){}
 
+
+    @Override
+    public int compareTo(Player o) {
+        return 0;
+    }
 }
