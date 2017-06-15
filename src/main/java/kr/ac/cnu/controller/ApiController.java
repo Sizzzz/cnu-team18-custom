@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/X")
-public class XController {
+@RequestMapping("/api")
+public class ApiController {
 
     @RequestMapping(value = "/print", method = RequestMethod.GET)
     @ResponseBody
