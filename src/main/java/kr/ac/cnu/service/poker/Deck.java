@@ -17,10 +17,10 @@ public class Deck {
 
     public Deck(int num) {
         this.cardList = new ArrayList<Card>();
-        crateCard(num);
+        createCard(num);
     }
 
-    private void crateCard(int num)
+    private void createCard(int num)
     {
         for(int k = 0; k < num; k++) {
             for (Suit suit : Suit.values()) {
@@ -35,5 +35,13 @@ public class Deck {
 
     public int getTotalCard(){
         return cardList.size();
+    }
+
+    public Card drawCard() throws NoMoreCardEexception {
+        if(cardList.size() == 0)
+        {
+            throw new NoMoreCardEexception();
+        }
+        return cardList.remove(0);
     }
 }
