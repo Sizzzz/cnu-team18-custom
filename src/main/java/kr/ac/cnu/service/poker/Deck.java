@@ -15,6 +15,10 @@ public class Deck {
 
     private List<Card> cardList;
 
+    public Deck() {
+        this.cardList = new ArrayList<Card>();
+        createCard(1);
+    }
     public Deck(int num) {
         this.cardList = new ArrayList<Card>();
         createCard(num);

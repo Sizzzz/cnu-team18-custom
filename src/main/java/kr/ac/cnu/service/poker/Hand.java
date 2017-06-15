@@ -11,7 +11,7 @@ public class Hand {
     private PokerType pokerType;
     private List<Card> cardList;
 
-    public Hand(Deck deck, PokerType pokerType) {
+    public Hand(Deck deck, PokerType pokerType) throws NoMoreCardEexception {
         this.deck = deck;
         this.pokerType = pokerType;
         cardList = new ArrayList<Card>();
