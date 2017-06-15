@@ -41,7 +41,7 @@ public class Deck {
         return cardList.size();
     }
 
-    public Card drawCard() throws NoMoreCardEexception {
+    public Card drawCard() {
         if(cardList.size() == 0)
         {
             throw new NoMoreCardEexception();
