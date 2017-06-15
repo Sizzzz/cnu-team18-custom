@@ -64,6 +64,24 @@ public class Evaluator {
     }
 
     private boolean isTWO_PAIR(List<Card> cardList) {
+        int pair_count = 0;
+        Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
+        for(Card card : cardList) {
+            if(tempMap.containsKey(card.getRank())) {
+                Integer count = tempMap.get(card.getRank());
+                count = new Integer(count.intValue()+1);
+                tempMap.put(card.getRank(), count);
+            } else {
+                tempMap.put(card.getRank(), new Integer(1));
+            }
+        }
+        for(Integer key : tempMap.keySet()) {
+            if(tempMap.get(key) == 2) {
+                pair_count++;
+            }
+        }
+        if(pair_count == 2) { return true; }
+        return false;
     }
 
     public boolean isPAIR(List<Card> cardList) {
