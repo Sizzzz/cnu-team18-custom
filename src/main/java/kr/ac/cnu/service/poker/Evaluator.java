@@ -3,7 +3,7 @@ package kr.ac.cnu.service.poker;
 import java.util.List;
 
 /**
- * Created by sizz on 2017-06-15.
+ * Created by YJM on 2017-06-15.
  */
 public class Evaluator {
     public int evaluate(List<Card> cardList) {
