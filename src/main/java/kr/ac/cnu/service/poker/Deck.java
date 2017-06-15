@@ -13,20 +13,17 @@ public class Deck {
 
     private List<Card> cardList;
 
-    public Deck() {
+    public Deck(int num) {
         this.cardList = new ArrayList<Card>();
-        crateCard(1);
+        crateCard(num);
     }
 
     private void crateCard(int num)
     {
-        for(int k = 0; k < num; k++)
-        {
-            for(Suit suit : Suit.values())
-            {
-                for(int i = 1; i< 14;i++)
-                {
-                    Card card = new Card(i,suit);
+        for(int k = 0; k < num; k++) {
+            for (Suit suit : Suit.values()) {
+                for (int i = 1; i < 14; i++) {
+                    Card card = new Card(i, suit);
                     cardList.add(card);
                 }
             }
