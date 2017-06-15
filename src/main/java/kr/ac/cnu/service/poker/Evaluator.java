@@ -9,6 +9,7 @@ import java.util.Map;
  * Created by YJM on 2017-06-15.
  */
 public class Evaluator {
+    /*
     public int evaluate(List<Card> cardList) {
 
         if(isROYAL_STRAIGHT_FLUSH(cardList)) {
@@ -84,4 +85,5 @@ public class Evaluator {
         }
         return false;
     }
+    */
 }
