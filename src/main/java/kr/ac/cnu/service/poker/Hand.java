@@ -11,11 +11,11 @@ public class Hand {
     private PokerType pokerType;
     private List<Card> cardList;
 
-    public Hand(Deck deck, PokerType pokerType) throws NoMoreCardEexception {
+    public Hand(Deck deck, PokerType pokerType) {
         this.deck = deck;
         this.pokerType = pokerType;
         cardList = new ArrayList<Card>();
-        for(int i = 0; i < pokerType.getNumberOfCard(); i++) {
+        for (int i = 0; i < pokerType.getNumberOfCard(); i++) {
             cardList.add(deck.drawCard());
         }
     }
