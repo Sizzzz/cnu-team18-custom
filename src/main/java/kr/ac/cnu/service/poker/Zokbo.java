@@ -20,4 +20,16 @@ public enum Zokbo {
     TWO_PAIR(8),
     PAIR(9),
     HIGH_CARD(10);
+
+    private int ZokboRank;
+
+    Zokbo(int ZokboRank) {
+        this.ZokboRank = ZokboRank;
+    }
+    public int getZokboRank() {
+        return this.ZokboRank;
+    }
+    public void setZokboRank(int rank) {
+        this.ZokboRank = rank;
+    }
 }
