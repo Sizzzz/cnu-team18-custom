@@ -32,4 +32,38 @@ public enum Zokbo {
     public void setZokboRank(int rank) {
         this.ZokboRank = rank;
     }
+
+    public String getZokboName(int index){
+        switch( index ){
+            case 1:
+                return Zokbo.ROYAL_FLUSH.name();
+            case 2:
+                return Zokbo.STRAIGHT_FLUSH.name();
+
+            case 3:
+                return Zokbo.FOUR_OF_A_KIND.name();
+
+            case 4:
+                return Zokbo.FULL_HOUSE.name();
+
+            case 5:
+                return Zokbo.FLUSH.name();
+
+            case 6:
+                return Zokbo.STRAIGHT.name();
+
+            case 7:
+                return Zokbo.THREE_OF_A_KIND.name();
+
+            case 8:
+                return Zokbo.TWO_PAIR.name();
+
+            case 9:
+                return Zokbo.PAIR.name();
+
+            default:
+                return Zokbo.HIGH_CARD.name();
+
+        }
+    }
 }
