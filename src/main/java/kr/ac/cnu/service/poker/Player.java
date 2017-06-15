@@ -22,6 +22,11 @@ public class Player implements Comparable<Player>{
 
     @Override
     public int compareTo(Player o) {
-        return 0;
+        int result = this.getLastCard().getRank() - o.getLastCard().getRank();
+
+        if(result == 0)
+            return this.getLastCard().getSuit().ordinal() - o.getLastCard().getSuit().ordinal();
+        else
+            return result;
     }
 }
