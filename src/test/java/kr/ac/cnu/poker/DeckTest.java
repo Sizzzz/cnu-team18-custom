@@ -17,4 +17,10 @@ public class DeckTest {
         int totalCard = deck.getTotalCard();
         assertThat(totalCard, is(104));
     }
+    @Test
+    public void 싱글덱에서_카드를_한장뽑으면_51장이남는다() {
+        Deck deck = new Deck();
+        deck.drawCard();
+        assertThat(deck.getTotalCard(), is(51));
+    }
 }
