@@ -1,6 +1,8 @@
 package kr.ac.cnu.poker;
 
 import kr.ac.cnu.service.poker.*;
+import kr.ac.cnu.service.poker.Deck;
+import kr.ac.cnu.service.poker.Hand;
 import kr.ac.cnu.service.poker.PokerType;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
