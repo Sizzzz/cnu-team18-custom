@@ -14,6 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Created by USER on 2017-06-15.
  */
 public class EvaluatorTest {
+    /*
     @Test
     public void RANK가_2개가동일하면_페어다_성공() {
         Evaluator evaluator = new Evaluator();
@@ -27,4 +28,5 @@ public class EvaluatorTest {
         boolean result = evaluator.isPAIR(cardList);
         assertThat(result, is(true));
     }
+    */
 }
