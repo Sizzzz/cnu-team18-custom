@@ -7,15 +7,11 @@ import java.util.List;
  * Created by USER on 2017-06-15.
  */
 public class Hand {
-    private Deck deck;
-    private PokerType pokerType;
     private List<Card> cardList;
-
-    public Hand(Deck deck, PokerType pokerType) {
-        this.deck = deck;
-        this.pokerType = pokerType;
+    final static int MAX_HAND_NUM = 7;
+    public Hand(Deck deck) {
         cardList = new ArrayList<Card>();
-        for (int i = 0; i < pokerType.getNumberOfCard(); i++) {
+        for (int i = 0; i < MAX_HAND_NUM; i++) {
             cardList.add(deck.drawCard());
         }
     }
