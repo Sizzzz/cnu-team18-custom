@@ -42,10 +42,13 @@ public class Evaluator {
     }*/
 
     /*private boolean isROYAL_STRAIGHT_FLUSH(List<Card> cardList) {
-    }
-
-    private boolean isSTRAIGHT_FLUSH(List<Card> cardList) {
     }*/
+
+    public boolean isSTRAIGHT_FLUSH(List<Card> cardList) {
+        if(isSTRAIGHT(cardList) && isFLUSH(cardList))
+            return true;
+        return false;
+    }
 
     public boolean isFOUR_OF_A_KIND(List<Card> cardList) {
         Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
