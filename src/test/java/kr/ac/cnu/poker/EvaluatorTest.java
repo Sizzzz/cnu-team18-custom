@@ -111,4 +111,68 @@ public class EvaluatorTest {
         boolean result = evaluator.isTHREE_OF_A_KIND(cardList);
         assertThat(result, is(true));
     }
+
+    @Test
+    public void RANK가_5개가나란하면_스트레이트다_성공1() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(2, Suit.CLUBS),
+                new Card(3, Suit.HEARTS),
+                new Card(4, Suit.CLUBS),
+                new Card(5, Suit.CLUBS),
+                new Card(6, Suit.CLUBS),
+                new Card(11, Suit.CLUBS),
+                new Card(13, Suit.CLUBS)
+        );
+        boolean result = evaluator.isSTRAIGHT(cardList);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void RANK가_5개가나란하면_스트레이트다_성공2() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(3, Suit.CLUBS),
+                new Card(6, Suit.HEARTS),
+                new Card(5, Suit.CLUBS),
+                new Card(2, Suit.CLUBS),
+                new Card(4, Suit.CLUBS),
+                new Card(2, Suit.SPADES),
+                new Card(4, Suit.HEARTS)
+        );
+        boolean result = evaluator.isSTRAIGHT(cardList);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void RANK가_5개가나란하면_스트레이트다_성공3() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(1, Suit.CLUBS),
+                new Card(2, Suit.HEARTS),
+                new Card(11, Suit.CLUBS),
+                new Card(3, Suit.CLUBS),
+                new Card(7, Suit.CLUBS),
+                new Card(12, Suit.CLUBS),
+                new Card(13, Suit.CLUBS)
+        );
+        boolean result = evaluator.isSTRAIGHT(cardList);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void RANK가_5개가나란하면_스트레이트다_실패() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(1, Suit.CLUBS),
+                new Card(2, Suit.HEARTS),
+                new Card(11, Suit.CLUBS),
+                new Card(3, Suit.CLUBS),
+                new Card(7, Suit.CLUBS),
+                new Card(10, Suit.CLUBS),
+                new Card(13, Suit.CLUBS)
+        );
+        boolean result = evaluator.isSTRAIGHT(cardList);
+        assertThat(result, is(true));
+    }
 }

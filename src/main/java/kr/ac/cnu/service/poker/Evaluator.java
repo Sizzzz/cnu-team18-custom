@@ -57,7 +57,7 @@ public class Evaluator {
     }*/
 
     public boolean isSTRAIGHT(List<Card> cardList) {
-        int[] rank = new int[5];
+        int[] rank = new int[cardList.size()];
         int i = 0;
         for(Card card : cardList){
             rank[i] = card.getRank();
@@ -65,11 +65,41 @@ public class Evaluator {
         }
         Arrays.sort(rank);
 
-        for(i = 0; i < 3;i++){
-            if((rank[i] + 1 != rank[i+1]) && (rank[i] + 9 != rank[i+1]))
-                return false;
+        int count = 0;
+
+        for (i = 0; i < cardList.size() - 1; i++) {
+            if (i < cardList.size() - 3) {
+                if((rank[i] == rank[i+1]))
+                    continue;
+                else if ((rank[i] + 1 == rank[i + 1])) {
+                    count++;
+                } else if ((rank[i] + 9 == rank[i + 3])) {
+                    count++;
+                    i += 2;
+                }else{
+                    if(count == 4)
+                        break;
+                    else
+                        count = 0;
+                }
+            } else {
+                if((rank[i] == rank[i+1]))
+                    continue;
+                else if ((rank[i] + 1 == rank[i + 1])) {
+                    count++;
+                }else{
+                    if(count >= 4)
+                        break;
+                    else
+                        count = 0;
+                }
+            }
         }
-        return true;
+
+        if (count >= 4)
+            return true;
+        else
+            return false;
     }
 
     public boolean isTHREE_OF_A_KIND(List<Card> cardList) {
