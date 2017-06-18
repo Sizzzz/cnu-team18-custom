@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Evaluator {
 
-    /*public int evaluate(List<Card> cardList) {
+    public int evaluate(List<Card> cardList) {
 
         if(isROYAL_STRAIGHT_FLUSH(cardList)) {
             return Zokbo.ROYAL_FLUSH.getZokboRank();
@@ -39,10 +39,41 @@ public class Evaluator {
         }
         else
             return Zokbo.HIGH_CARD.getZokboRank();
-    }*/
+    }
 
-    /*private boolean isROYAL_STRAIGHT_FLUSH(List<Card> cardList) {
-    }*/
+    public boolean isROYAL_STRAIGHT_FLUSH(List<Card> cardList) {
+        Map <Suit, Integer> tempMap = new HashMap<Suit, Integer>();
+        int [] ATJQK = new int [7];
+        boolean flag = false;
+        int sum = 0;
+
+        for(Card card : cardList) {
+            if(card.getRank() == 1){
+                ATJQK[0]++;
+            } else if(card.getRank() == 10) {
+                ATJQK[1]++;
+            } else if(card.getRank() == 11) {
+                ATJQK[2]++;
+            } else if(card.getRank() == 12) {
+                ATJQK[3]++;
+            } else if(card.getRank() == 13) {
+                ATJQK[4]++;
+            }
+        }
+
+        for(int i : ATJQK) {
+            if(ATJQK[i] != 0)
+                sum += i;
+        }
+
+        if(sum == 5)
+            flag = true;
+
+        if(flag)
+            if(isFLUSH(cardList)) { return true; }
+
+        return false;
+    }
 
     public boolean isSTRAIGHT_FLUSH(List<Card> cardList) {
         if(isSTRAIGHT(cardList) && isFLUSH(cardList))
