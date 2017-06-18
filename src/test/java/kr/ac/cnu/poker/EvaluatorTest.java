@@ -22,7 +22,9 @@ public class EvaluatorTest {
                 new Card(2, Suit.DIAMONDS),
                 new Card(13, Suit.HEARTS),
                 new Card(4, Suit.SPADES),
-                new Card(7, Suit.SPADES)
+                new Card(7, Suit.SPADES),
+                new Card(10, Suit.SPADES),
+                new Card(5, Suit.SPADES)
         );
         boolean result = evaluator.isPAIR(cardList);
         assertThat(result, is(true));
@@ -36,7 +38,9 @@ public class EvaluatorTest {
                 new Card(2,Suit.DIAMONDS),
                 new Card(13,Suit.HEARTS),
                 new Card(2,Suit.SPADES),
-                new Card(7,Suit.SPADES)
+                new Card(7,Suit.SPADES),
+                new Card(8, Suit.DIAMONDS),
+                new Card(9, Suit.HEARTS)
         );
         boolean result = evaluator.isTWO_PAIR(cardList);
         assertThat(result, is(true));
@@ -50,7 +54,9 @@ public class EvaluatorTest {
                 new Card(2,Suit.DIAMONDS),
                 new Card(13,Suit.HEARTS),
                 new Card(2,Suit.SPADES),
-                new Card(5,Suit.SPADES)
+                new Card(5,Suit.SPADES),
+                new Card(9, Suit.CLUBS),
+                new Card(12, Suit.HEARTS)
         );
         boolean result = evaluator.isTWO_PAIR(cardList);
         assertThat(result, is(true));
@@ -64,7 +70,9 @@ public class EvaluatorTest {
                 new Card(3,Suit.DIAMONDS),
                 new Card(13,Suit.HEARTS),
                 new Card(2,Suit.SPADES),
-                new Card(5,Suit.SPADES)
+                new Card(5,Suit.SPADES),
+                new Card(7, Suit.SPADES),
+                new Card(11, Suit.SPADES)
         );
         boolean result = evaluator.isTWO_PAIR(cardList);
         assertThat(result, is(true));
@@ -78,7 +86,9 @@ public class EvaluatorTest {
                 new Card(12,Suit.DIAMONDS),
                 new Card(12,Suit.HEARTS),
                 new Card(5,Suit.SPADES),
-                new Card(8,Suit.SPADES)
+                new Card(8,Suit.SPADES),
+                new Card(7, Suit.SPADES),
+                new Card(9, Suit.SPADES)
         );
         boolean result = evaluator.isTHREE_OF_A_KIND(cardList);
         assertThat(result, is(true));
@@ -92,7 +102,9 @@ public class EvaluatorTest {
                 new Card(7,Suit.DIAMONDS),
                 new Card(1,Suit.HEARTS),
                 new Card(4,Suit.SPADES),
-                new Card(7,Suit.SPADES)
+                new Card(7,Suit.SPADES),
+                new Card(13,Suit.DIAMONDS),
+                new Card(9,Suit.DIAMONDS)
         );
         boolean result = evaluator.isTHREE_OF_A_KIND(cardList);
         assertThat(result, is(true));
@@ -106,7 +118,9 @@ public class EvaluatorTest {
                 new Card(2,Suit.DIAMONDS),
                 new Card(1,Suit.HEARTS),
                 new Card(4,Suit.SPADES),
-                new Card(7,Suit.SPADES)
+                new Card(7,Suit.SPADES),
+                new Card(6,Suit.DIAMONDS),
+                new Card(9,Suit.DIAMONDS)
         );
         boolean result = evaluator.isTHREE_OF_A_KIND(cardList);
         assertThat(result, is(true));
