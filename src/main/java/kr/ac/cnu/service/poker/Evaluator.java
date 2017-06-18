@@ -48,10 +48,12 @@ public class Evaluator {
     }
 
     private boolean isFOUR_OF_A_KIND(List<Card> cardList) {
-    }
-
-    private boolean isFULL_HOUSE(List<Card> cardList) {
     }*/
+
+    public boolean isFULL_HOUSE(List<Card> cardList) {
+        if(isPAIR(cardList) == true && isTHREE_OF_A_KIND(cardList) == true ) { return true; }
+        return false;
+    }
 
     public boolean isFLUSH(List<Card> cardList) {
         Map<Suit, Integer> tempMap = new HashMap<Suit, Integer>();

@@ -221,4 +221,36 @@ public class EvaluatorTest {
         boolean result = evaluator.isFLUSH(cardList);
         assertThat(result, is(Boolean.TRUE));
     }
+
+    @Test
+    public void 페어와_트리플이_동시에있으면_풀하우스_성공() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(5,Suit.CLUBS),
+                new Card(3,Suit.DIAMONDS),
+                new Card(3,Suit.HEARTS),
+                new Card(3,Suit.SPADES),
+                new Card(5,Suit.SPADES),
+                new Card(11,Suit.HEARTS),
+                new Card(13,Suit.SPADES)
+        );
+        boolean result = evaluator.isFULL_HOUSE(cardList);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void 페어와_트리플이_동시에있으면_풀하우스_실패() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(5,Suit.CLUBS),
+                new Card(3,Suit.DIAMONDS),
+                new Card(3,Suit.HEARTS),
+                new Card(3,Suit.SPADES),
+                new Card(8,Suit.SPADES),
+                new Card(11,Suit.HEARTS),
+                new Card(13,Suit.SPADES)
+        );
+        boolean result = evaluator.isFULL_HOUSE(cardList);
+        assertThat(result, is(true));
+    }
 }
