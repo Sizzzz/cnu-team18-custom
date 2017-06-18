@@ -51,10 +51,28 @@ public class Evaluator {
     }
 
     private boolean isFULL_HOUSE(List<Card> cardList) {
-    }
-
-    private boolean isFLUSH(List<Card> cardList) {
     }*/
+
+    public boolean isFLUSH(List<Card> cardList) {
+        Map<Suit, Integer> tempMap = new HashMap<Suit, Integer>();
+
+        for (Card card : cardList) {
+            if (tempMap.containsKey(card.getSuit())) {
+                Integer count = tempMap.get(card.getSuit());
+                count = new Integer(count.intValue() + 1);
+                tempMap.put(card.getSuit(), count);
+            } else {
+                tempMap.put(card.getSuit(), new Integer(1));
+            }
+        }
+
+        for (Suit key : tempMap.keySet()) {
+            if (tempMap.get(key) >= 5) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public boolean isSTRAIGHT(List<Card> cardList) {
         int[] rank = new int[cardList.size()];

@@ -189,4 +189,36 @@ public class EvaluatorTest {
         boolean result = evaluator.isSTRAIGHT(cardList);
         assertThat(result, is(true));
     }
+
+    @Test
+    public void SUIT가_5개가동일하면_플러쉬다_성공() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(1,Suit.CLUBS),
+                new Card(4,Suit.CLUBS),
+                new Card(8,Suit.HEARTS),
+                new Card(13,Suit.CLUBS),
+                new Card(2,Suit.DIAMONDS),
+                new Card(11,Suit.CLUBS),
+                new Card(3,Suit.CLUBS)
+        );
+        boolean result = evaluator.isFLUSH(cardList);
+        assertThat(result, is(Boolean.TRUE));
+    }
+
+    @Test
+    public void SUIT가_5개가동일하면_플러쉬다_실패() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(1,Suit.CLUBS),
+                new Card(4,Suit.CLUBS),
+                new Card(8,Suit.HEARTS),
+                new Card(13,Suit.SPADES),
+                new Card(2,Suit.DIAMONDS),
+                new Card(11,Suit.CLUBS),
+                new Card(3,Suit.CLUBS)
+        );
+        boolean result = evaluator.isFLUSH(cardList);
+        assertThat(result, is(Boolean.TRUE));
+    }
 }
