@@ -253,4 +253,52 @@ public class EvaluatorTest {
         boolean result = evaluator.isFULL_HOUSE(cardList);
         assertThat(result, is(true));
     }
+
+    @Test
+    public void RANK가_4개가동일하면_포카드다_성공1() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(2,Suit.CLUBS),
+                new Card(2,Suit.DIAMONDS),
+                new Card(2,Suit.HEARTS),
+                new Card(2,Suit.SPADES),
+                new Card(5,Suit.SPADES),
+                new Card(12,Suit.SPADES),
+                new Card(11,Suit.SPADES)
+        );
+        boolean result = evaluator.isFOUR_OF_A_KIND(cardList);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void RANK가_4개가동일하면_포카드다_성공2() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(8,Suit.CLUBS),
+                new Card(8,Suit.DIAMONDS),
+                new Card(4,Suit.HEARTS),
+                new Card(8,Suit.SPADES),
+                new Card(8,Suit.CLUBS),
+                new Card(11,Suit.SPADES),
+                new Card(10,Suit.CLUBS)
+        );
+        boolean result = evaluator.isFOUR_OF_A_KIND(cardList);
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void RANK가_4개가동일하면_포카드다_실패() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(2,Suit.CLUBS),
+                new Card(2,Suit.DIAMONDS),
+                new Card(4,Suit.HEARTS),
+                new Card(2,Suit.SPADES),
+                new Card(5,Suit.SPADES),
+                new Card(7,Suit.SPADES),
+                new Card(9,Suit.SPADES)
+        );
+        boolean result = evaluator.isFOUR_OF_A_KIND(cardList);
+        assertThat(result, is(false));
+    }
 }

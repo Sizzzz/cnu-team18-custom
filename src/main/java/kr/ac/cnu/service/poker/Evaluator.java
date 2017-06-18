@@ -45,10 +45,26 @@ public class Evaluator {
     }
 
     private boolean isSTRAIGHT_FLUSH(List<Card> cardList) {
-    }
-
-    private boolean isFOUR_OF_A_KIND(List<Card> cardList) {
     }*/
+
+    public boolean isFOUR_OF_A_KIND(List<Card> cardList) {
+        Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
+
+        for (Card card : cardList) {
+            if (tempMap.containsKey(card.getRank())) {
+                Integer count = tempMap.get(card.getRank());
+                count = new Integer(count.intValue() + 1);
+                tempMap.put(card.getRank(), count);
+            } else {
+                tempMap.put(card.getRank(), new Integer(1));
+            }
+        }
+
+        for (Integer key : tempMap.keySet()) {
+            if (tempMap.get(key) == 4) { return true; }
+        }
+        return false;
+    }
 
     public boolean isFULL_HOUSE(List<Card> cardList) {
         if(isPAIR(cardList) == true && isTHREE_OF_A_KIND(cardList) == true ) { return true; }
