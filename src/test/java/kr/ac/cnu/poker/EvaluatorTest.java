@@ -226,12 +226,12 @@ public class EvaluatorTest {
     public void 페어와_트리플이_동시에있으면_풀하우스_성공1() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
-                new Card(5,Suit.CLUBS),
+                new Card(1,Suit.CLUBS),
                 new Card(3,Suit.DIAMONDS),
                 new Card(3,Suit.HEARTS),
                 new Card(3,Suit.SPADES),
-                new Card(5,Suit.SPADES),
-                new Card(11,Suit.HEARTS),
+                new Card(1,Suit.SPADES),
+                new Card(2,Suit.HEARTS),
                 new Card(13,Suit.SPADES)
         );
         boolean result = evaluator.isFULL_HOUSE(cardList);
@@ -268,6 +268,23 @@ public class EvaluatorTest {
         );
         boolean result = evaluator.isFULL_HOUSE(cardList);
         assertThat(result, is(true));
+    }
+
+    @Test
+    public void demoTestCase() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(3, Suit.CLUBS),
+                new Card(3, Suit.DIAMONDS),
+                new Card(5, Suit.CLUBS),
+                new Card(4, Suit.CLUBS),
+                new Card(4, Suit.SPADES),
+                new Card(4, Suit.DIAMONDS),
+                new Card(3, Suit.HEARTS)
+        );
+
+        boolean result = evaluator.isFULL_HOUSE(cardList);
+        assertThat(result, is(Boolean.TRUE));
     }
 
     @Test
