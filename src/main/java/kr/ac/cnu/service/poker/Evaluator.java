@@ -101,9 +101,50 @@ public class Evaluator {
     }
 
     public boolean isFULL_HOUSE(List<Card> cardList) {
-        if(isPAIR(cardList) == true && isTHREE_OF_A_KIND(cardList) == true ) {return true; }
-        else if(isTHREE_OF_A_KIND(cardList) == true && isTHREE_OF_A_KIND(cardList) == true) {return true; }
+        if( isPAIR(cardList) == true && isTHREE_OF_A_KIND(cardList) == true ) {
+            return true;
+        } else if(checkIfThereAreTwoSetsOfThreeCards(cardList)) {
+            return true;
+        }
         return false;
+    }
+
+    public boolean checkIfThereAreTwoSetsOfThreeCards(List<Card> cardList) {
+        List result0 = cutCardListIfAvailable(cardList);
+        if(result0.size() == 4 && result0 != null) {
+            List result1 = cutCardListIfAvailable(result0);
+            if(result1.size() == 1 && result1 != null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private List cutCardListIfAvailable(List<Card> cardList) {
+        Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
+
+        for(Card card : cardList) {
+            if(tempMap.containsKey(card.getRank())) {
+                Integer count = tempMap.get(card.getRank());
+                count = new Integer(count.intValue()+1);
+                tempMap.put(card.getRank(), count);
+            } else {
+                tempMap.put(card.getRank(), new Integer(1));
+            }
+        }
+
+        for (Integer key : tempMap.keySet()) {
+            if (tempMap.get(key) == 3) {
+                List<Card> tempList = new ArrayList<Card>();
+                for(Card card : cardList) {
+                    if(card.getRank() != key) {
+                        tempList.add(card);
+                    }
+                }
+                return tempList;
+            }
+        }
+        return null;
     }
 
     public boolean isFLUSH(List<Card> cardList) {
@@ -193,6 +234,8 @@ public class Evaluator {
         }
         return false;
     }
+
+
 
     public boolean isTWO_PAIR(List<Card> cardList) {
         int pair_count = 0;
