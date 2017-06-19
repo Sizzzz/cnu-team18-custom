@@ -271,16 +271,16 @@ public class EvaluatorTest {
     }
 
     @Test
-    public void demoTestCase() {
+    public void 트리플이_두개_있으면_풀하우스_성공() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
                 new Card(3, Suit.CLUBS),
                 new Card(3, Suit.DIAMONDS),
-                new Card(5, Suit.CLUBS),
+                new Card(3, Suit.SPADES),
                 new Card(4, Suit.CLUBS),
                 new Card(4, Suit.SPADES),
                 new Card(4, Suit.DIAMONDS),
-                new Card(3, Suit.HEARTS)
+                new Card(5, Suit.HEARTS)
         );
 
         boolean result = evaluator.isFULL_HOUSE(cardList);
