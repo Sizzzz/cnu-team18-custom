@@ -101,7 +101,8 @@ public class Evaluator {
     }
 
     public boolean isFULL_HOUSE(List<Card> cardList) {
-        if(isPAIR(cardList) == true && isTHREE_OF_A_KIND(cardList) == true ) { return true; }
+        if(isPAIR(cardList) == true && isTHREE_OF_A_KIND(cardList) == true ) {return true; }
+        else if(isTHREE_OF_A_KIND(cardList) == true && isTHREE_OF_A_KIND(cardList) == true) {return true; }
         return false;
     }
 
