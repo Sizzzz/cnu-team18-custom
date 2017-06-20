@@ -110,17 +110,23 @@ public class Evaluator {
     }
 
     public boolean checkIfThereAreTwoSetsOfThreeCards(List<Card> cardList) {
-        List result0 = cutCardListIfAvailable(cardList);
-        if(result0.size() == 4 && result0 != null) {
-            List result1 = cutCardListIfAvailable(result0);
-            if(result1.size() == 1 && result1 != null) {
-                return true;
+        boolean result = false;
+        try {
+            List<Card> result0 = cardListCutIfAvail(cardList);
+            if(result0.size() == 4) {
+                List<Card> result1 = cardListCutIfAvail(result0);
+                if(result1.size() == 1) {
+                    result = true;
+                }
             }
+        } catch (NullPointerException e) {
+            result = false;
+        } finally {
+            return result;
         }
-        return false;
     }
 
-    private List cutCardListIfAvailable(List<Card> cardList) {
+    private List cardListCutIfAvail(List<Card> cardList) {
         Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
 
         for(Card card : cardList) {

@@ -267,7 +267,7 @@ public class EvaluatorTest {
                 new Card(13,Suit.SPADES)
         );
         boolean result = evaluator.isFULL_HOUSE(cardList);
-        assertThat(result, is(true));
+        assertThat(result, is(Boolean.FALSE));
     }
 
     @Test
